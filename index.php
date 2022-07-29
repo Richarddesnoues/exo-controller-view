@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__.'/controllers/MainController.php'; 
+
 
 
 
@@ -15,7 +17,7 @@
 // besoin de données pour faire l'affichage final.
 // Je prépare un tableau de données, qui commence vide.
 $viewVars = [];
-
+$controller = new MainController();
 
 
 if (isset($_GET['page'])) {
@@ -75,14 +77,7 @@ if (isset($_GET['page'])) {
 }
 
 
-// TODO: ici on avait accès à la fonction show
-// Ici, on gère l'inclusion des templates.
-function show($template, $viewVars = [])
-{
- 
+// TODO: me donner accès à la fonction show appelée plus bas dans ce fichier
 
-  require_once __DIR__ . '/views/header.tpl.php';
-  require_once __DIR__ . '/views/' . $template;
-  require_once __DIR__ . '/views/footer.tpl.php';
-}
-  show($tplName, $viewVars);
+
+  $controller->show($tplName, $viewVars);
