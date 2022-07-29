@@ -12,13 +12,21 @@
                   Sunday
                   <span class="ml-auto">Closed</span>
                 </li>
-                <?php 
-                
-                  // ... ici, je dois avoir accès à mon tableau de jours
-                  var_dump($viewVars['weekOpeningHour']);
-                
-                ?>
+                <?php foreach ($viewVars['weekOpeningHours'] as $dayName => $dayOpeningHours): ?>
+                  <li class="list-unstyled-item list-hours-item d-flex
+                    <?php
+                  if ($dayName === $viewVars['todayName']) {
+                    echo "today";
+                  }
+                  ?>
+                  ">
+                    <?= $dayName ?>
+                    <span class="ml-auto"><?= $dayOpeningHours ?></span>
+                  </li>
+                <?php endforeach; ?>
               </ul>
+
+
               <p class="address mb-5">
                 <em>
                   <strong>1116 Orchard Street</strong>
@@ -53,7 +61,8 @@
                 <p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.</p>
                 <p class="mb-0">We guarantee that you will fall in
                   <em>lust</em>
-                  with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p>
+                  with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.
+                </p>
               </div>
             </div>
           </div>

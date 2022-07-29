@@ -35,6 +35,27 @@ if (isset($_GET['page'])) {
     'Friday' => '7:00 AM to 8:00 PM',
     'Saturday' => '9:00 AM to 5:00 PM'
   ];
+ 
+
+
+  // Il faut détecter quel jour on est , pour que le template store 
+  // puisse le mettre en évidence.
+
+  // On récupère le jour du jour, au format anglais
+  $today = date("Y-m-d");
+
+  // On extrait le numéro du jour dans la semaine .
+  $dayNumber = date('N', strtotime($today));
+
+  // On extrait le nom du jour du jour dans la semaine
+  $todayName = array_keys($weekOpeningHours)[$dayNumber];
+
+
+  // Ok, les données sont prêtes, on les transmets à la vue !
+  $viewVars['weekOpeningHours'] = $weekOpeningHours;
+  $viewVars['todayName'] = $todayName;
+
+
 
   } else if ($_GET['page'] === 'products') {
     // require_once __DIR__.'/views/products.tpl.php';
@@ -64,4 +85,4 @@ function show($template, $viewVars = [])
   require_once __DIR__ . '/views/' . $template;
   require_once __DIR__ . '/views/footer.tpl.php';
 }
-  show($tplName, $weekOpeningHours);
+  show($tplName, $viewVars);
