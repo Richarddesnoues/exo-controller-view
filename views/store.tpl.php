@@ -12,13 +12,13 @@
                   Sunday
                   <span class="ml-auto">Closed</span>
                 </li>
-                <?php foreach ($viewVars['weekOpeningHours'] as $dayName => $dayOpeningHours): ?>
+                <?php foreach ($viewVars['weekOpeningHours'] as $dayName => $dayOpeningHours) : ?>
                   <li class="list-unstyled-item list-hours-item d-flex
                     <?php
-                  if ($dayName === $viewVars['todayName']) {
-                    echo "today";
-                  }
-                  ?>
+                    if ($dayName === $viewVars['todayName']) {
+                      echo "today";
+                    }
+                    ?>
                   ">
                     <?= $dayName ?>
                     <span class="ml-auto"><?= $dayOpeningHours ?></span>
