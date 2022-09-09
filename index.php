@@ -18,6 +18,7 @@ require_once __DIR__.'/controllers/MainController.php';
 // Je prépare un tableau de données, qui commence vide.
 $viewVars = [];
 $controller = new MainController();
+$tplName = ''; // je crée une variable vide
 
 
 if (isset($_GET['page'])) {
@@ -48,5 +49,5 @@ if (isset($_GET['page'])) {
 
 // TODO: me donner accès à la fonction show appelée plus bas dans ce fichier
 
-
-  $controller->show($tplName, $viewVars);
+// Je vais apeler le méthode show dans le controller plutot qu'ici. 
+  // $controller->show($tplName, $viewVars);

@@ -52,6 +52,11 @@ class MainController
         // Ok, les données sont prêtes, on les transmets à la vue !
         $viewVars['weekOpeningHours'] = $weekOpeningHours;
         $viewVars['todayName'] = $todayName;
+
+
+        // Comme je vais appeler la méthode show ici, je peux utiliser $this plutot que $controller->show($tplName, $viewVars) ce qui donne:
+        
+        $this->show($tplName, $viewVars);
     }
 }
 
