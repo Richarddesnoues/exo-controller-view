@@ -13,7 +13,7 @@ class MainController
     public function show($template, $viewVars = [])
     {
         require_once __DIR__ . '/../views/header.tpl.php';
-        require_once __DIR__ . '/../views/' . $template;
+        require_once __DIR__ . '/../views/' . $template.'.tpl.php';
         require_once __DIR__ . '/../views/footer.tpl.php';
     }
 
@@ -21,7 +21,7 @@ class MainController
     public function store()
     {
         // require_once __DIR__.'/views/store.tpl.php';
-        $tplName = 'store.tpl.php';
+        $tplName = 'store';
 
         //...ici, je dois avoir accès à mon tableau de jours
         $weekOpeningHours = [
@@ -61,18 +61,18 @@ class MainController
 
 
     public function products() {
-        $tplName = 'products.tpl.php';
+        $tplName = 'products';
         $this->show($tplName);
     }
 
 
     public function error404() {
-        $tplName = '404.tpl.php';
+        $tplName = '404';
         $this->show($tplName);
     }
 
     public function home() {
-        $tplName = 'home.tpl.php';
+        $tplName = 'home';
         $this->show($tplName);
     }
 }
