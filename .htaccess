@@ -1,0 +1,28 @@
+# Activer la fonctionnalité Apache de réécriture d'URL.
+RewriteEngine On
+
+
+# Récupérer la fin de l'URL et le stocker dans la variable spéciale $1 pour l'utiliser plus tard.
+
+RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::$2
+RewriteRule ^(.*) - [E="BASE_URI/%1"]
+
+
+
+
+# Mais activer la réécriture d'URL, seulement si l'URL demandée n'est pas un dossier qui existe.
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+# Mais activer la réécriture d'URL, seulement si l'URL demandée n'est pas un fichier qui existe.
+RewriteCond %{REQUEST_FILENAME} !-f 
+
+
+
+
+# Réécrire L'URL pour renseigner le script PHP, en remplaçant la fin par index.php?page=/partie-d-url-tapé-par-l-internaute
+RewriteRule ^(.*)$ index.php?page=/$1 [QSA,L]
+
+
+# exemple :
+# lacolhost/mon/site/products => localhost/mon/site/products

@@ -28,18 +28,20 @@ $controller = new MainController();
 // On déclare nos différentes pages du site.
 // On déclare nos routes.
 
+
+// J'ai rajouté un "/" sur le nom des routes aprés avoir intégré le htaccess pour avoir une URL plus simple avec juste le nom de la page 
   $routes = [
-    'home' => [
+    '/' => [
       'controller' => 'MainController',
       'method' => 'home'
     ],
 
-    'products' => [
+    '/products' => [
       'controller' => 'MainController',
       'method' => 'products',
     ],
 
-    'store' => [
+    '/store' => [
       'controller' => 'MainController',
       'method' => 'store',
     ],
@@ -52,7 +54,7 @@ $controller = new MainController();
   ];
 
   // On imagine que par defaut, la page demandée est l'index
-  $requestedPage = 'home';
+  $requestedPage = '/';
 
 // Complément impératif pour utilisr les routes déclarées qui permet:
 
