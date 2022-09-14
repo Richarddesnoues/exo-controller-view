@@ -58,6 +58,23 @@ class MainController
         
         $this->show($tplName, $viewVars);
     }
+
+
+    public function products() {
+        $tplName = 'products.tpl.php';
+        $this->show($tplName);
+    }
+
+
+    public function error404() {
+        $tplName = '404.tpl.php';
+        $this->show($tplName);
+    }
+
+    public function home() {
+        $tplName = 'home.tpl.php';
+        $this->show($tplName);
+    }
 }
 
 
